@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<title xmlns="http://www.w3.org/1999/html">Home - Project Web Datamining & Semantics</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+<body>
+<section class="main_frame">
+    <h1>Project Web Datamining & Semantics</h1>
+    <form class="form-inline" method="POST" action="/query/">
+
+        <!-- creating the query selector -->
+        <label style="color: white;">Choose a query</label>
+        <div class="select" style="margin: auto; margin-bottom: 75px;">
+            <select id="query-select" name="query-select" class="selectpicker form-control">
+                {% for query in queries %}
+                <option value="{{ query }}">{{ query }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- creating the city selector -->
+        <label style="color: white;">Choose a city : (used for queries 5, 8, 10 & 11)</label>
+        <div class="select" style="margin: auto; margin-bottom: 75px;">
+            <select id="city-select" name="city-select" class="selectpicker form-control">
+                {% for city in cities %}
+                <option value="{{ city }}">{{ city }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- creating the second city selector -->
+        <label style="color: white;">Choose a second city : (used for query 11)</label>
+        <div class="select" style="margin: auto; margin-bottom: 75px;">
+            <select id="city-select-2" name="city-select-2" class="selectpicker form-control">
+                {% for city in cities %}
+                <option value="{{ city }}">{{ city }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <div class="selectpicker form-control">
+                <button type="submit" class="btn">Execute Query</button>
+            </div>
+        </div>
+    </form>
+</section>
+</body>

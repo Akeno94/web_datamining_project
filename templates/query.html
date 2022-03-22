@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Query - Project Web Datamining & Semantics</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='save_result.js') }}" ></script>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>{{ desc }}</h1>
+        <div>
+            <button onclick="save_results()">save query result</button> <!-- button to save results -->
+            <button onclick="history.back()" type="submit" value="Cancel">Home</button>
+        </div>
+        <table id="result">
+            <tr> <!-- creating the header of the table -->
+                {% for val in columns %}
+                    <th>{{ val }}</th>
+                {% endfor %}
+            </tr>
+
+            <!-- adding every row in the table -->
+            {% for row in results %}
+                <tr>
+                {% for value in row %}
+                    <td>{{ value }}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
